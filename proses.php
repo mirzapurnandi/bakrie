@@ -4,6 +4,18 @@ if (isset($_POST['AksiSubmit'])) {
     $total_nilai = $_POST['total'];
     $data_ex = explode(",", $datas);
 
+    //validation
+    if (count($data_ex) > 10) {
+        echo 'Data melebihi 10';
+        exit;
+    } elseif (empty($datas)) {
+        echo 'Data masih kosong';
+        exit;
+    } elseif (empty($total_nilai)) {
+        echo 'Total masih kosong';
+        exit;
+    }
+
     $data_soal = "";
     $pertanyaan = [];
     $no = 0;
